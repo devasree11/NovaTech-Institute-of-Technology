@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaTech · Institute of Technology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a1a2a;
+            color: #e8f0f8;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* ----------------------------------------------
+                   STICKY NAVBAR
+                ------------------------------------------------ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 20, 40, 0.95);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            padding: 0.6rem 0;
+            transition: all 0.3s;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #d4af37, #f0d080, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo .badge {
+            font-weight: 400;
+            font-size: 0.6rem;
+            background: rgba(212, 175, 55, 0.12);
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            -webkit-text-fill-color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            letter-spacing: 0.06em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #a0b8d0;
+            transition: 0.2s;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: linear-gradient(90deg, #d4af37, #f0d080);
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .nav-apply {
+            background: linear-gradient(135deg, #d4af37, #c9a030);
+            color: #0a1a2a !important;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+        }
+
+        .nav-apply::after {
+            display: none !important;
+        }
+
+        .nav-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+            color: #0a1a2a !important;
+        }
+
+        /* ----------------------------------------------
+                   HERO
+                ------------------------------------------------ */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: -20px;
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            background-image: url('../images/hhh.jpg');
+            background-size: cover;
+            background-position: center 20%;
+            filter: blur(8px);
+            z-index: 0;
+            transform: scale(1.02);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 20, 40, 0.75);
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(212, 175, 55, 0.12);
+            backdrop-filter: blur(8px);
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            max-width: 850px;
+            color: #ffffff;
+            text-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(120deg, #d4af37, #f0d080, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 520px;
+            margin: 1.5rem 0 2.2rem;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #c0d8e8;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #c9a030);
+            color: #0a1a2a;
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-4px);
+        }
+
+        /* ----------------------------------------------
+                   SECTION TITLES
+                ------------------------------------------------ */
+        section {
+            padding: 5.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #e8f0f8;
+        }
+
+        .section-title .accent {
+            background: linear-gradient(145deg, #d4af37, #f0d080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), transparent);
+            border-radius: 4px;
+        }
+
+        .section-title .emoji {
+            font-size: 2rem;
+            -webkit-text-fill-color: initial;
+        }
+
+        /* ----------------------------------------------
+                   STATS
+                ------------------------------------------------ */
+        #stats {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+            background: linear-gradient(145deg, #061420, #0e2840);
+            border-top: 1px solid rgba(212, 175, 55, 0.08);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
+            border-radius: 48px;
+            padding: 2.5rem 1.8rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-card .number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37, #f0d080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-card .label {
+            color: #a0b8d0;
+            font-weight: 500;
+            margin-top: 0.4rem;
+            font-size: 1rem;
+        }
+
+        /* ----------------------------------------------
+                   ABOUT US
+                ------------------------------------------------ */
+        #about {
+            background: #0a1a2a;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #c0d8e8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.4rem;
+        }
+
+        .about-text .highlight {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .about-image {
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .about-stats-mini {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-stat-mini {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 28px;
+            padding: 1.4rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .about-stat-mini .num {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37, #f0d080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-stat-mini .lbl {
+            font-size: 0.85rem;
+            color: #a0b8d0;
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+
+        /* ----------------------------------------------
+                   COURSES
+                ------------------------------------------------ */
+        #courses {
+            background: #0e1a2a;
+        }
+
+        .courses-intro {
+            font-size: 1.1rem;
+            color: #a0b8d0;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .courses-intro span {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .course-box-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-box {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 2rem 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-box:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 20px 48px rgba(212, 175, 55, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .course-box .course-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e8f0f8;
+            margin-bottom: 0.3rem;
+        }
+
+        .course-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .course-details .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-details .detail-item .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #8aa8b8;
+            font-weight: 500;
+        }
+
+        .course-details .detail-item .value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e8f0f8;
+            margin-top: 0.1rem;
+        }
+
+        .course-details .detail-item .value.fee {
+            color: #d4af37;
+        }
+
+        /* ----------------------------------------------
+                   ADMISSIONS SECTION
+                ------------------------------------------------ */
+        #admissions-section {
+            background: #0a1a2a;
+        }
+
+        #admissions-section .admissions-intro {
+            text-align: center;
+            padding: 1rem 0 2rem;
+        }
+
+        #admissions-section .admissions-intro p {
+            font-size: 1.2rem;
+            color: #a0b8d0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* ----------------------------------------------
+                   FACILITIES
+                ------------------------------------------------ */
+        #facilities {
+            background: #0e1a2a;
+        }
+
+        .facilities-intro {
+            font-size: 1.1rem;
+            color: #a0b8d0;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .facilities-intro span {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        .facility-grid-advanced {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .facility-card-simple {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facility-card-simple::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.02), transparent);
+            z-index: 0;
+        }
+
+        .facility-card-simple:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 24px 56px rgba(212, 175, 55, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .facility-card-simple .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .facility-card-simple .facility-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-bottom: 1.2rem;
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .facility-card-simple:hover .facility-image {
+            transform: scale(1.03);
+        }
+
+        .facility-card-simple .category-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            background: rgba(212, 175, 55, 0.08);
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+        }
+
+        .facility-card-simple h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #e8f0f8;
+            margin-bottom: 0.5rem;
+        }
+
+        .facility-card-simple .facility-desc {
+            font-size: 0.95rem;
+            color: #a0b8d0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .facility-card-simple .facility-stats-mini {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .facility-card-simple .facility-stats-mini .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #a0b8d0;
+            padding: 0.2rem 0;
+        }
+
+        .facility-card-simple .facility-stats-mini .stat-row .stat-label {
+            font-weight: 500;
+        }
+
+        .facility-card-simple .facility-stats-mini .stat-row .stat-value {
+            font-weight: 700;
+            color: #d4af37;
+        }
+
+        .facility-card-simple .facility-rating {
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            color: #d4af37;
+            letter-spacing: 3px;
+        }
+
+        .facility-card-simple .facility-rating .star {
+            color: #d4af37;
+        }
+
+        .facility-card-simple .facility-rating .star-empty {
+            color: #3a5a6a;
+        }
+
+        /* ----------------------------------------------
+                   GALLERY
+                ------------------------------------------------ */
+        #gallery {
+            background: #0a1a2a;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 48px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            filter: saturate(0.95) brightness(0.9);
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.04);
+            filter: saturate(1) brightness(1);
+            box-shadow: 0 20px 48px rgba(212, 175, 55, 0.08);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 20, 40, 0.95);
+            backdrop-filter: blur(24px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 48px;
+            box-shadow: 0 48px 96px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ----------------------------------------------
+                   CONTACT — With Live Google Maps
+                ------------------------------------------------ */
+        #contact {
+            background: #0e1a2a;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        .contact-info p {
+            margin: 0.6rem 0;
+            color: #c0d8e8;
+            font-size: 1rem;
+        }
+
+        .contact-info p strong {
+            color: #d4af37;
+        }
+
+        .contact-info .info-icon {
+            color: #d4af37;
+            margin-right: 0.5rem;
+        }
+
+        /* Google Maps Container */
+        .map-container {
+            border-radius: 36px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+            height: 220px;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-container .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.5rem 1rem;
+            background: rgba(8, 20, 40, 0.8);
+            backdrop-filter: blur(4px);
+            text-align: center;
+            font-size: 0.75rem;
+            color: #a0b8d0;
+        }
+
+        .map-container .map-overlay a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .map-container .map-overlay a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem 1.6rem;
+            border-radius: 60px;
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            margin-bottom: 1.2rem;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e8f0f8;
+            transition: 0.25s;
+            font-size: 1rem;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #6a8a9a;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.04);
+        }
+
+        .contact-form textarea {
+            border-radius: 36px;
+            min-height: 120px;
+        }
+
+        .contact-error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* ----------------------------------------------
+                   FOOTER — NovaTech Institute of Technology
+                ------------------------------------------------ */
+        .college-footer {
+            background: #061420;
+            border-top: 3px solid #d4af37;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .college-footer::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, #f0d080, #d4af37, transparent);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #d4af37, #f0d080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand .college-name {
+            color: #d4af37;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.2rem;
+        }
+
+        .footer-brand .tagline {
+            color: #a0b8d0;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .footer-brand .accreditations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-brand .accreditations span {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #d4af37;
+            letter-spacing: 0.04em;
+        }
+
+        .footer-links h4,
+        .footer-programs h4 {
+            color: #e8f0f8;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+            padding-bottom: 0.6rem;
+        }
+
+        .footer-links ul,
+        .footer-programs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li,
+        .footer-programs ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links ul li a,
+        .footer-programs ul li a {
+            color: #a0b8d0;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links ul li a:hover,
+        .footer-programs ul li a:hover {
+            color: #d4af37;
+            padding-left: 8px;
+        }
+
+        .footer-links ul li a::before,
+        .footer-programs ul li a::before {
+            content: '›';
+            color: #d4af37;
+            margin-right: 6px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links ul li a:hover::before,
+        .footer-programs ul li a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            color: #6a8a9a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.06);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom .copyright {
+            color: #6a8a9a;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom .copyright span {
+            color: #d4af37;
+        }
+
+        .footer-bottom .address {
+            color: #6a8a9a;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        .footer-bottom .address .separator {
+            color: #d4af37;
+            margin: 0 0.5rem;
+        }
+
+        /* ----------------------------------------------
+                   ADMISSIONS PAGE OVERLAY
+                ------------------------------------------------ */
+        .admissions-page {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(8, 20, 40, 0.95);
+            backdrop-filter: blur(24px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow-y: auto;
+        }
+
+        .admissions-page.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .admissions-page-container {
+            background: #0a1a2a;
+            border-radius: 48px;
+            max-width: 720px;
+            width: 100%;
+            padding: 3rem;
+            box-shadow: 0 48px 96px rgba(0, 0, 0, 0.6);
+            animation: slideUp 0.5s ease;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(212, 175, 55, 0.06);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px) scale(0.96);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .admissions-page-close {
+            position: sticky;
+            top: 0;
+            float: right;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #6a8a9a;
+            cursor: pointer;
+            transition: 0.3s;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .admissions-page-close:hover {
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+
+        .admissions-page .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e8f0f8;
+            margin-bottom: 0.3rem;
+            clear: both;
+        }
+
+        .admissions-page .form-subtitle {
+            font-size: 0.95rem;
+            color: #a0b8d0;
+            margin-bottom: 2rem;
+        }
+
+        .admissions-page .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .admissions-page .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #c0d8e8;
+            margin-bottom: 0.3rem;
+        }
+
+        .admissions-page .form-group label .required {
+            color: #e74c3c;
+        }
+
+        .admissions-page .form-group input,
+        .admissions-page .form-group select {
+            width: 100%;
+            padding: 0.85rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e8f0f8;
+            transition: 0.25s;
+        }
+
+        .admissions-page .form-group input::placeholder {
+            color: #6a8a9a;
+        }
+
+        .admissions-page .form-group input:focus,
+        .admissions-page .form-group select:focus {
+            border-color: #d4af37;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.04);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .admissions-page .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0b8d0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+        }
+
+        .admissions-page .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .admissions-page .phone-group {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 0.5rem;
+        }
+
+        .admissions-page .phone-group select {
+            padding: 0.85rem 0.6rem;
+            border-radius: 60px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            font-family: inherit;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.04);
+            color: #e8f0f8;
+        }
+
+        .admissions-page .phone-group select:focus {
+            border-color: #d4af37;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.04);
+        }
+
+        .admissions-page .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .admissions-page .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            accent-color: #d4af37;
+            flex-shrink: 0;
+        }
+
+        .admissions-page .checkbox-group label {
+            font-size: 0.85rem;
+            color: #a0b8d0;
+            line-height: 1.5;
+        }
+
+        .admissions-page .checkbox-group label strong {
+            color: #e8f0f8;
+        }
+
+        .admissions-page .form-actions .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .admissions-page .form-error {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: -0.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .admissions-page .form-success {
+            color: #2ecc71;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            display: none;
+        }
+
+        .admissions-page .form-links {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-top: 1.2rem;
+        }
+
+        .admissions-page .form-links a {
+            color: #6a8a9a;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .admissions-page .form-links a:hover {
+            color: #d4af37;
+        }
+
+        .admissions-page-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .admissions-page-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .admissions-page-container::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 10px;
+        }
+
+        /* ----------------------------------------------
+                   RESPONSIVE
+                ------------------------------------------------ */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+                flex-wrap: wrap;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .about-stats-mini {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .container {
+                padding: 0 1.8rem;
+            }
+            .course-box-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            .facility-grid-advanced {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            .admissions-page-container {
+                padding: 2rem;
+            }
+            .admissions-page .form-row {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-bottom .address {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .container {
+                padding: 0 1.2rem;
+            }
+            .nav-links {
+                gap: 0.7rem;
+                font-size: 0.75rem;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            .nav-apply {
+                padding: 0.3rem 1.2rem;
+                font-size: 0.75rem;
+            }
+            .about-stats-mini {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .stat-card .number {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            .course-box-grid {
+                grid-template-columns: 1fr;
+            }
+            .course-details {
+                grid-template-columns: 1fr 1fr;
+            }
+            .facility-grid-advanced {
+                grid-template-columns: 1fr 1fr;
+            }
+            .admissions-page-container {
+                padding: 1.5rem;
+                margin: 1rem;
+                border-radius: 32px;
+            }
+            .admissions-page .phone-group {
+                grid-template-columns: 70px 1fr;
+            }
+            .admissions-page .form-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            .admissions-page .form-title {
+                font-size: 1.5rem;
+            }
+            .footer-brand .accreditations {
+                justify-content: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .map-container {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    STICKY NAVBAR
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-logo">
+                NovaTech
+                <span class="badge">✦ est. 1989</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#courses">Courses</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#admissions-section">Admissions</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+                <span class="nav-apply" id="applyNowBtn">Apply Now</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-badge">✦ Shaping minds since 1989</div>
+            <h1>
+                Where <span class="gradient-text">curiosity</span> meets
+                <br />opportunity
+            </h1>
+            <p>
+                NovaTech Institute of Technology — a vibrant ecosystem of learning, research,
+                and community. Your future starts here.
+            </p>
+            <div class="btn-group">
+                <span class="btn btn-primary" id="heroApplyBtn">Apply Now</span>
+                <a href="#courses" class="btn btn-outline">Explore Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STATS
+    ============================================================ -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-card">
+                    <div class="number" data-target="4850">0</div>
+                    <div class="label">Total Students</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" data-target="9">0</div>
+                    <div class="label">Courses Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" data-target="35">0</div>
+                    <div class="label">Years of Excellence</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" data-target="94">0</div>
+                    <div class="label">Placement Rate %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT US
+    ============================================================ -->
+    <br></br>
+    <section id="about" class="container">
+        <div class="section-title">
+            <span class="accent">About</span> Us
+            <span class="line"></span>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    <span class="highlight">NovaTech Institute of Technology</span> was founded in 1989 with
+                    a vision to create a learning environment that fosters innovation,
+                    critical thinking, and holistic development.
+                </p>
+                <p>
+                    We believe in nurturing the next generation of leaders through
+                    world-class education, cutting-edge research, and a vibrant campus
+                    life that prepares students for the challenges of tomorrow.
+                </p>
+                <p>
+                    Our commitment to <span class="highlight">excellence</span> is reflected
+                    in our state-of-the-art facilities, distinguished faculty, and a
+                    curriculum designed to bridge the gap between academia and industry.
+                </p>
+                <div class="about-stats-mini">
+                    <div class="about-stat-mini">
+                        <div class="num">35+</div>
+                        <div class="lbl">Years of Excellence</div>
+                    </div>
+                    <div class="about-stat-mini">
+                        <div class="num">4.8k+</div>
+                        <div class="lbl">Students</div>
+                    </div>
+                    <div class="about-stat-mini">
+                        <div class="num">94%</div>
+                        <div class="lbl">Placement Rate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80" alt="Campus life" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    COURSES
+    ============================================================ -->
+    <br></br>
+    <section id="courses" class="container">
+        <div class="section-title">
+            <span class="accent">Engineering</span> Programs
+            <span class="line"></span>
+        </div>
+        <p class="courses-intro">
+            Explore our <span>premium engineering programs</span> designed to shape the innovators of tomorrow.
+        </p>
+        <div class="course-box-grid">
+            <div class="course-box">
+                <h3 class="course-name">Computer Science Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,85,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">AI &amp; ML</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">120</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Electronics &amp; Communication</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,72,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">IoT &amp; Signal</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">90</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Mechanical Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,65,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Robotics &amp; Design</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">75</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Civil Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,58,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Structural &amp; Env.</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">60</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Electrical Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,62,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Power &amp; Renewable</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">70</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Chemical Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,55,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Process &amp; Bio-tech</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">55</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Aerospace Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,95,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Aeronautics &amp; Space</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">45</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Marine Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,68,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Naval &amp; Offshore</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">40</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-box">
+                <h3 class="course-name">Biomedical Engineering</h3>
+                <div class="course-details">
+                    <div class="detail-item">
+                        <span class="label">Duration</span>
+                        <span class="value">4 Years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Annual Fee</span>
+                        <span class="value fee">₹1,78,000</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Specialization</span>
+                        <span class="value">Medical Devices &amp; Imaging</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats</span>
+                        <span class="value">50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ADMISSIONS SECTION
+    ============================================================ -->
+    <br></br>
+    <section id="admissions-section" class="container">
+        <div class="section-title">
+            <span class="accent">Admissions</span> Open 2026-2027
+            <span class="line"></span>
+        </div>
+        <div class="admissions-intro">
+            <p>
+                Ready to begin your journey at NovaTech Institute of Technology? Click the button below to fill out the application form.
+            </p>
+            <span class="btn btn-primary" id="sectionApplyBtn" style="font-size:1.2rem; padding:1.2rem 4rem;">
+                📋 Apply Now
+            </span>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FACILITIES
+    ============================================================ -->
+    <section id="facilities" class="container">
+        <div class="section-title">
+            <span class="accent">Campus</span> Facilities
+            <span class="line"></span>
+        </div>
+        <p class="facilities-intro">
+            Explore our <span>world-class facilities</span> designed to provide an exceptional learning and living experience.
+        </p>
+
+        <div class="facility-grid-advanced">
+            <!-- Facility 1: Library -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=80" alt="Library" />
+                    <span class="category-badge">Academic</span>
+                    <h4>Library</h4>
+                    <p class="facility-desc">24/7 access to knowledge with 50,000+ books</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Collection</span>
+                            <span class="stat-value">50K+</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Digital Access</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Study Spaces</span>
+                            <span class="stat-value">85%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 2: Research Labs -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80" alt="Research Labs" />
+                    <span class="category-badge">Academic</span>
+                    <h4>Research Labs</h4>
+                    <p class="facility-desc">Cutting-edge facilities for innovation</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Equipment</span>
+                            <span class="stat-value">95%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Research Output</span>
+                            <span class="stat-value">88%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Student Projects</span>
+                            <span class="stat-value">92%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 3: Sports Complex -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="../images/sports.jpg" alt="Sports Complex" />
+                    <span class="category-badge">Sports</span>
+                    <h4>Sports Complex</h4>
+                    <p class="facility-desc">Indoor &amp; outdoor sporting facilities</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Facilities</span>
+                            <span class="stat-value">90%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Coaching</span>
+                            <span class="stat-value">85%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Participation</span>
+                            <span class="stat-value">78%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 4: Hostel -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600&q=80" alt="Hostel" />
+                    <span class="category-badge">Living</span>
+                    <h4>Hostel</h4>
+                    <p class="facility-desc">Comfortable living spaces with 24/7 security</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Accommodation</span>
+                            <span class="stat-value">92%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Safety Rating</span>
+                            <span class="stat-value">98%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Amenities</span>
+                            <span class="stat-value">86%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 5: Cafeteria -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&q=80" alt="Cafeteria" />
+                    <span class="category-badge">Dining</span>
+                    <h4>Cafeteria</h4>
+                    <p class="facility-desc">Multi-cuisine dining with healthy options</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Food Quality</span>
+                            <span class="stat-value">94%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Hygiene</span>
+                            <span class="stat-value">99%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Variety</span>
+                            <span class="stat-value">88%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 6: Wi-Fi Campus -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=600&q=80" alt="Wi-Fi Campus" />
+                    <span class="category-badge">Technology</span>
+                    <h4>Wi-Fi Campus</h4>
+                    <p class="facility-desc">High-speed connectivity everywhere</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Coverage</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Speed</span>
+                            <span class="stat-value">95%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Reliability</span>
+                            <span class="stat-value">98%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 7: Auditorium -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="../images/auditimm.jpg" alt="Auditorium" />
+                    <span class="category-badge">Academic</span>
+                    <h4>Auditorium</h4>
+                    <p class="facility-desc">State-of-the-art venue for events</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Capacity</span>
+                            <span class="stat-value">2000+</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">AV Equipment</span>
+                            <span class="stat-value">96%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Acoustics</span>
+                            <span class="stat-value">94%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility 8: Medical Center -->
+            <div class="facility-card-simple">
+                <div class="card-content">
+                    <img class="facility-image" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Medical Center" />
+                    <span class="category-badge">Living</span>
+                    <h4>Medical Center</h4>
+                    <p class="facility-desc">24/7 healthcare with qualified doctors</p>
+                    <div class="facility-stats-mini">
+                        <div class="stat-row">
+                            <span class="stat-label">Availability</span>
+                            <span class="stat-value">100%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Staff Quality</span>
+                            <span class="stat-value">96%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Equipment</span>
+                            <span class="stat-value">90%</span>
+                        </div>
+                    </div>
+                    <div class="facility-rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GALLERY
+    ============================================================ -->
+    <section id="gallery" class="container">
+        <div class="section-title">
+            <span class="accent">Campus</span> Gallery
+            <span class="line"></span>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <img src="../images/p1 (1).jpg" alt="campus1" />
+            <img src="../images/p1 (2).jpg" alt="campus2" />
+            <img src="../images/p1 (3).jpg" alt="campus3" />
+            <img src="../images/p1 (4).jpg" alt="campus4" />
+            <img src="../images/p1 (5).jpg" alt="campus5" />
+            <img src="../images/p1 (6).jpg" alt="campus6" />
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="lightbox" id="lightboxImg" />
+    </div>
+
+    <!-- ============================================================
+    CONTACT — With Live Google Maps
+    ============================================================ -->
+    <section id="contact" class="container">
+        <div class="section-title">
+            <span class="accent">Get in</span> touch
+            <span class="line"></span>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p><span class="info-icon">📍</span> <strong>Address</strong><br />7 Tech Park Avenue, Knowledge City, Chennai - 600127</p>
+                <p><span class="info-icon">📞</span> <strong>Phone</strong><br />+91 80 2345 6789</p>
+                <p><span class="info-icon">✉️</span> <strong>Email</strong><br />admissions@novatech.edu.in</p>
+                
+                <!-- Live Google Maps -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.28640191895!2d80.0975579021682!3d13.047537670606158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e7878e3d7ed6c9a!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="NovaTech Institute of Technology Location">
+                    </iframe>
+                    <div class="map-overlay">
+                        📍 <a href="https://www.google.com/maps/place/Chennai,+Tamil+Nadu/@13.0475377,80.097558,12z/data=!3m1!4b1!4m6!3m5!1s0x3a5265ea4f7d3361:0x6e7878e3d7ed6c9a!8m2!3d13.0826802!4d80.2707184!16zL20vMDlmdG0?entry=ttu" target="_blank">Open in Google Maps</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" id="contactName" placeholder="Full Name" required />
+                    <input type="email" id="contactEmail" placeholder="Email Address" required />
+                    <input type="text" id="contactSubject" placeholder="Subject" />
+                    <textarea id="contactMessage" placeholder="Your message..." required></textarea>
+                    <div id="contactError" class="contact-error"></div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER — NovaTech Institute of Technology
+    ============================================================ -->
+    <footer class="college-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <h2>NovaTech</h2>
+                    <p class="college-name">✦ Institute of Technology</p>
+                    <p class="tagline">
+                        Nurturing tomorrow's innovators through excellence in education, research, and community engagement since 1989.
+                    </p>
+                    <div class="accreditations">
+                        <span>AICTE</span>
+                        <span>Anna University</span>
+                        <span>NAAC A++</span>
+                        <span>ISO 9001</span>
+                        <span>NBA Accredited</span>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">YouTube</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#admissions-section">Admissions</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div class="footer-programs">
+                    <h4>Our Programs</h4>
+                    <ul>
+                        <li><a href="#courses">B.E. Computer Science</a></li>
+                        <li><a href="#courses">B.E. Electronics &amp; Comm</a></li>
+                        <li><a href="#courses">B.E. Mechanical</a></li>
+                        <li><a href="#courses">B.Tech AI &amp; Data Science</a></li>
+                        <li><a href="#courses">M.E. Computer Science</a></li>
+                        <li><a href="#courses">M.E. Engineering Design</a></li>
+                        <li><a href="#courses">Ph.D. Programs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2026 <span>NovaTech Institute of Technology</span>. All Rights Reserved.
+                </div>
+                <div class="address">
+                    Tech Park, Chennai - 600127 <span class="separator">|</span> +91 80 2345 6789
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    ADMISSIONS PAGE OVERLAY
+    ============================================================ -->
+    <div class="admissions-page" id="admissionsPage">
+        <div class="admissions-page-container">
+            <button class="admissions-page-close" id="closeAdmissionsPage">✕</button>
+
+            <div class="form-title">📋 Application Form</div>
+            <div class="form-subtitle">Fill in your details to begin your journey</div>
+
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label>Enter Name <span class="required">*</span></label>
+                    <input type="text" id="appName" placeholder="Your full name" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Enter Email Address <span class="required">*</span></label>
+                    <input type="email" id="appEmail" placeholder="your@email.com" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Enter Mobile Number <span class="required">*</span></label>
+                    <div class="phone-group">
+                        <select id="appCountryCode">
+                            <option value="+91">+91</option>
+                            <option value="+1">+1</option>
+                            <option value="+44">+44</option>
+                            <option value="+61">+61</option>
+                            <option value="+81">+81</option>
+                        </select>
+                        <input type="tel" id="appPhone" placeholder="9876543210" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Any Password of Your Choice <span class="required">*</span></label>
+                    <input type="password" id="appPassword" placeholder="Create a strong password" required />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>State <span class="required">*</span></label>
+                        <select id="appState" required>
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>City <span class="required">*</span></label>
+                        <select id="appCity" required>
+                            <option value="">Select City</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Pune">Pune</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Course <span class="required">*</span></label>
+                        <select id="appCourse" required>
+                            <option value="">Select Course</option>
+                            <option value="B.Tech CSE">B.Tech CSE</option>
+                            <option value="B.Tech ECE">B.Tech ECE</option>
+                            <option value="B.Tech Mechanical">B.Tech Mechanical</option>
+                            <option value="B.Tech Civil">B.Tech Civil</option>
+                            <option value="B.Tech Electrical">B.Tech Electrical</option>
+                            <option value="B.Tech Chemical">B.Tech Chemical</option>
+                            <option value="B.Tech Aerospace">B.Tech Aerospace</option>
+                            <option value="B.Tech Marine">B.Tech Marine</option>
+                            <option value="B.Tech Biomedical">B.Tech Biomedical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Specialization <span class="required">*</span></label>
+                        <select id="appSpecialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="AI & ML">AI &amp; ML</option>
+                            <option value="IoT & Signal">IoT &amp; Signal</option>
+                            <option value="Robotics & Design">Robotics &amp; Design</option>
+                            <option value="Structural & Env">Structural &amp; Env</option>
+                            <option value="Power & Renewable">Power &amp; Renewable</option>
+                            <option value="Process & Bio-tech">Process &amp; Bio-tech</option>
+                            <option value="Aeronautics & Space">Aeronautics &amp; Space</option>
+                            <option value="Naval & Offshore">Naval &amp; Offshore</option>
+                            <option value="Medical Devices">Medical Devices &amp; Imaging</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="appConsent" required />
+                    <label for="appConsent">
+                        I authorise <strong>NovaTech Institute of Technology</strong> &amp; its representatives to contact me
+                        with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
+                        <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div id="appFormError" class="form-error"></div>
+                <div id="appFormSuccess" class="form-success">✅ Application submitted successfully! We will contact you shortly.</div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">APPLY NOW</button>
+                </div>
+
+                <div class="form-links">
+                    <a href="#">Already have an Account? Login</a>
+                    <a href="#">Resend Verification Email</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---------- STATS COUNTER ----------
+            const counters = document.querySelectorAll('.stat-card .number');
+            let counted = false;
+            const statsSection = document.getElementById('stats');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !counted) {
+                        counted = true;
+                        counters.forEach(c => {
+                            const target = parseInt(c.getAttribute('data-target'), 10);
+                            let current = 0;
+                            const increment = Math.ceil(target / 55);
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    c.innerText = target;
+                                    clearInterval(timer);
+                                } else {
+                                    c.innerText = current;
+                                }
+                            }, 20);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            if (statsSection) observer.observe(statsSection);
+
+            // ---------- LIGHTBOX ----------
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const galleryImgs = document.querySelectorAll('#galleryGrid img');
+
+            galleryImgs.forEach(img => {
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src;
+                    lightbox.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    lightbox.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+                    lightbox.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ---------- ADMISSIONS PAGE ----------
+            const admissionsPage = document.getElementById('admissionsPage');
+            const openBtns = document.querySelectorAll('#applyNowBtn, #heroApplyBtn, #sectionApplyBtn');
+            const closeBtn = document.getElementById('closeAdmissionsPage');
+
+            function openAdmissionsPage() {
+                admissionsPage.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeAdmissionsPage() {
+                admissionsPage.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            openBtns.forEach(btn => {
+                btn.addEventListener('click', openAdmissionsPage);
+            });
+
+            closeBtn.addEventListener('click', closeAdmissionsPage);
+
+            admissionsPage.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeAdmissionsPage();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && admissionsPage.classList.contains('open')) {
+                    closeAdmissionsPage();
+                }
+            });
+
+            // ---------- ADMISSION FORM ----------
+            const admissionForm = document.getElementById('admissionForm');
+            const appFormError = document.getElementById('appFormError');
+            const appFormSuccess = document.getElementById('appFormSuccess');
+
+            admissionForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('appName').value.trim();
+                const email = document.getElementById('appEmail').value.trim();
+                const phone = document.getElementById('appPhone').value.trim();
+                const password = document.getElementById('appPassword').value.trim();
+                const state = document.getElementById('appState').value;
+                const city = document.getElementById('appCity').value;
+                const course = document.getElementById('appCourse').value;
+                const specialization = document.getElementById('appSpecialization').value;
+                const consent = document.getElementById('appConsent').checked;
+
+                if (!name || !email || !phone || !password || !state || !city || !course || !specialization) {
+                    appFormError.textContent = 'Please fill in all required fields.';
+                    appFormSuccess.style.display = 'none';
+                    return;
+                }
+
+                if (!email.includes('@') || !email.includes('.')) {
+                    appFormError.textContent = 'Please enter a valid email address.';
+                    appFormSuccess.style.display = 'none';
+                    return;
+                }
+
+                if (phone.length < 10) {
+                    appFormError.textContent = 'Please enter a valid mobile number.';
+                    appFormSuccess.style.display = 'none';
+                    return;
+                }
+
+                if (password.length < 6) {
+                    appFormError.textContent = 'Password must be at least 6 characters long.';
+                    appFormSuccess.style.display = 'none';
+                    return;
+                }
+
+                if (!consent) {
+                    appFormError.textContent = 'Please agree to the terms and conditions.';
+                    appFormSuccess.style.display = 'none';
+                    return;
+                }
+
+                appFormError.textContent = '';
+                appFormSuccess.style.display = 'block';
+
+                setTimeout(() => {
+                    admissionForm.reset();
+                    appFormSuccess.style.display = 'none';
+                    closeAdmissionsPage();
+                }, 3000);
+            });
+
+            // ---------- CONTACT FORM ----------
+            const contactForm = document.getElementById('contactForm');
+            const contactError = document.getElementById('contactError');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const message = document.getElementById('contactMessage').value.trim();
+
+                if (!name || !email || !message) {
+                    contactError.textContent = 'Please fill in Name, Email and Message.';
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    contactError.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+                contactError.textContent = '';
+                alert('✅ Message sent! (demo)');
+                contactForm.reset();
+            });
+
+        })();
+    </script>
+</body>
+</html>
